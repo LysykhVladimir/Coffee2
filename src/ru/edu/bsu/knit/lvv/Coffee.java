@@ -4,13 +4,28 @@ import ru.edu.bsu.knit.lvv.Product;
  * Created by Vladimir on 25.10.2016.
  */
 //Кофе
- class Coffee extends Product{
+ abstract class Coffee extends Product{
     private String grade;  //сорт кофе
-    private Integer roast; //степень обжарки
+    private Roast roast; //степень обжарки
 
-      public Coffee(String country, Double weight, Double cost, String grade, Integer roast) {
-        super(country, weight, cost);
+    public Coffee(String country, Double weight, Double cost, Integer count, String grade, Roast roast) {
+        super(country, weight, cost, count);
         this.grade = grade;
         this.roast = roast;
     }
+
+
+    public String getGrade() {
+        return grade;
+    }
+
+    public Roast getRoast() {
+        return roast;
+    }
 }
+
+ enum Roast{
+    SMALL,
+    MIDDLE,
+    HARD;
+ }
